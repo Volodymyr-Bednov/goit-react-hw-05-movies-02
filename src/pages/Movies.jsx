@@ -2,13 +2,17 @@ import { getDataApi } from 'components/Api/Api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [foundMovies, setfoundMovies] = useState([]);
   const [isReplied, setIsReplied] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const values = searchParams.get('name') ?? '';
+  console.log(values);
+
+  const location = useLocation();
+  console.log(location);
 
   const handlerSubmitForm = evt => {
     evt.preventDefault();
