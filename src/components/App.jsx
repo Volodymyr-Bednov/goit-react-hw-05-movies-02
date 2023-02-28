@@ -15,6 +15,7 @@ export const App = () => {
   const { pathname } = useLocation();
   //console.log('App ', location);
   const movies = `${pathname}/movies`;
+  const moviesId = `${pathname}/movies/:movieId`;
   return (
     <div>
       <Routes>
@@ -22,7 +23,7 @@ export const App = () => {
           <Route index element={<Home />}></Route>
           <Route path={movies} element={<Movies />}></Route>
           {/*  */}
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path={moviesId} element={<MovieDetails />}>
             <Route path="cast" element={<Cast />}></Route>
             <Route path="reviews" element={<Reviews />}></Route>
           </Route>
