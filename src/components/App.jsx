@@ -14,12 +14,13 @@ const MovieDetails = lazy(() => import('pages/MovieDetails'));
 export const App = () => {
   const { pathname } = useLocation();
   //console.log('App ', location);
+  const movies = `${pathname}/movies`;
   return (
     <div>
       <Routes>
         <Route path={pathname} element={<MainLayout />}>
           <Route index element={<Home />}></Route>
-          <Route path="/movies" element={<Movies />}></Route>
+          <Route path={movies} element={<Movies />}></Route>
           {/*  */}
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />}></Route>
