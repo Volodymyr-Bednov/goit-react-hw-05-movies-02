@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Cast from 'pages/Cast';
 //import Home from 'pages/Home';
 //import MovieDetails from 'pages/MovieDetails';
@@ -12,6 +12,9 @@ const Home = lazy(() => import('pages/Home'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 
 export const App = () => {
+  
+  const location = useLocation();
+  console.log('App ', location);
   return (
     <div>
       <Routes>

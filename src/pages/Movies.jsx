@@ -12,7 +12,7 @@ export const Movies = () => {
   console.log(values);
 
   const location = useLocation();
-  console.log(location);
+  console.log('Movies ', location);
 
   const handlerSubmitForm = evt => {
     evt.preventDefault();
