@@ -2,13 +2,10 @@ import { getDataApi } from 'components/Api/Api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { HeaderPage } from 'components/MoviesList/MoviesList.styled';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isReplied, setIsReplied] = useState(false);
-  const location = useLocation();
-  console.log('Home ', location);
 
   const getTrending = async () => {
     const apiRequest = 'trending/movie/day';

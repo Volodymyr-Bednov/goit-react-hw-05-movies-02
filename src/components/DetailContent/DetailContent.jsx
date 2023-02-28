@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { NavLink, Outlet } from 'react-router-dom';
 import { defaultStaticPath } from '../../routerPaths/paths';
 import {
@@ -12,10 +11,6 @@ import {
 } from './DetailContent.styled';
 export const DetailContent = ({ detailsMovie }) => {
   const { tmdbImageSrv, noImage } = defaultStaticPath;
-  console.log('detailsMovie', detailsMovie);
-
-  console.log('tmdbImageSrv', tmdbImageSrv, ' noImage ', noImage);
-  console.log('nanoid', nanoid());
 
   return (
     <>

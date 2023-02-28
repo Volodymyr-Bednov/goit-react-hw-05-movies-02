@@ -1,10 +1,7 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Cast from 'pages/Cast';
-//import Home from 'pages/Home';
-//import MovieDetails from 'pages/MovieDetails';
 import Movies from 'pages/Movies';
 import Reviews from 'pages/Reviews';
-//import { PageHeader } from './PageHeader/PageHeader';
 import { lazy } from 'react';
 import MainLayout from 'Layouts/MainLayout';
 
@@ -12,8 +9,6 @@ const Home = lazy(() => import('pages/Home'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 
 export const App = () => {
-  const location = useLocation();
-  console.log('App ', location);
   return (
     <div>
       <Routes>

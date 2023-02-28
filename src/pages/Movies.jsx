@@ -2,17 +2,13 @@ import { getDataApi } from 'components/Api/Api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [foundMovies, setfoundMovies] = useState([]);
   const [isReplied, setIsReplied] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const values = searchParams.get('name') ?? '';
-  console.log(values);
-
-  const location = useLocation();
-  console.log('Movies ', location);
 
   const handlerSubmitForm = evt => {
     evt.preventDefault();
@@ -38,10 +34,6 @@ export const Movies = () => {
   return (
     <>
       <SearchForm onHandlerSubmit={handlerSubmitForm} />
-      {/* <form onSubmit={handlerSubmitForm}>
-        <input type="input" name="searchMovies"></input>
-        <button type="submit"></button>
-      </form> */}
       <div>{isReplied && <MoviesList data={foundMovies} />}</div>
     </>
   );

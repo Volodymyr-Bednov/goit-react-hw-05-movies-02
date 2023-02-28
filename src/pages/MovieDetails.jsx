@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
-  console.log('1');
   const { movieId } = useParams();
   const [detailsMovie, setDetailsMovie] = useState('');
   const [isReplied, setIsReplied] = useState(false);
