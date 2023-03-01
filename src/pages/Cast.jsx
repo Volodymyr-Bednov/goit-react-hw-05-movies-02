@@ -19,7 +19,7 @@ export const Cast = () => {
     setMovieCast(data.cast);
     setIsActiveCast(true);
 
-    console.log(data);
+    //console.log(data);
   };
   useEffect(() => {
     getCastInfo();

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import Cast from 'pages/Cast';
-import Movies from 'pages/Movies';
-import Reviews from 'pages/Reviews';
+import { Cast } from 'pages/Cast';
+import { Movies } from 'pages/Movies';
+import { Reviews } from 'pages/Reviews';
 import { lazy } from 'react';
 import MainLayout from 'Layouts/MainLayout';
 

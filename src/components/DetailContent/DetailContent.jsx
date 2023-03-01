@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { defaultStaticPath } from '../../routerPaths/paths';
 import {
   AddationBlock,
@@ -12,11 +12,6 @@ import {
 export const DetailContent = ({ detailsMovie }) => {
   const { tmdbImageSrv, noImage } = defaultStaticPath;
 
-  const location = useLocation();
-  console.log(location);
-
-  const navigate = useNavigate();
-  console.log(navigate);
   return (
     <>
       <MovieWrap>
