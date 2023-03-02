@@ -8,7 +8,7 @@ export const Movies = () => {
   const [foundMovies, setfoundMovies] = useState([]);
   const [isReplied, setIsReplied] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const values = searchParams.get('name') ?? '';
+  const searchValue = searchParams.get('name') ?? '';
 
   const handlerSubmitForm = evt => {
     evt.preventDefault();
@@ -27,7 +27,7 @@ export const Movies = () => {
   };
 
   useEffect(() => {
-    getSearchMovieS(values);
+    getSearchMovieS(searchValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
@@ -39,4 +39,4 @@ export const Movies = () => {
   );
 };
 
-//export default Movies;
+export default Movies;

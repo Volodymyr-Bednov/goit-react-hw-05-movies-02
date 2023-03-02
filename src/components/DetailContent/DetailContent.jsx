@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { defaultStaticPath } from '../../routerPaths/paths';
 import {
@@ -10,7 +11,13 @@ import {
   TextBlock,
 } from './DetailContent.styled';
 export const DetailContent = ({ detailsMovie }) => {
-  const { tmdbImageSrv, noImage } = defaultStaticPath;
+  const [tmdbImageSrv, setTmdbImageSrv] = useState('');
+  const [noImage, setNoImage] = useState('');
+  useEffect(() => {
+    setTmdbImageSrv(defaultStaticPath.tmdbImageSrv);
+    setNoImage(defaultStaticPath.noImage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

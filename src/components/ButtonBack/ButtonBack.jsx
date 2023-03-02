@@ -1,21 +1,19 @@
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ButtonLink } from './ButtonBack.styled';
 
-export const ButtonBack = ({ defLink }) => {
+export const ButtonBack = () => {
   const location = useLocation();
-  const defRef = '';
-  if (!defLink.hasOwnProperty('from')) {
-    console.log('From FROM');
-  } else {
-    console.log('Button', defLink);
+  const [backLink, setBackLink] = useState('');
 
-    defRef = location.state?.from ?? (defLink?.from || '/');
-    console.log('ButtonRef', defRef);
-  }
+  useEffect(() => {
+    setBackLink(location.state?.from ?? '/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
-      <ButtonLink to={defRef}> Go Back </ButtonLink>
+      <ButtonLink to={backLink}> Go Back </ButtonLink>
     </div>
   );
 };

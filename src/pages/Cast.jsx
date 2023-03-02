@@ -1,4 +1,5 @@
 import { getDataApi } from 'components/Api/Api';
+import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { defaultStaticPath } from '../routerPaths/paths';
@@ -6,22 +7,20 @@ import { defaultStaticPath } from '../routerPaths/paths';
 export const Cast = () => {
   const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
-
   const [isActiveCast, setIsActiveCast] = useState(false);
+  const [tmdbImageSrv, setTmdbImageSrv] = useState('');
+  const [noImage, setNoImage] = useState('');
 
-  const { tmdbImageSrv, noImage } = defaultStaticPath;
-
-  // // get-movie-credits
-  // // const apiRequest = 'movie/343611/credits';
   const getCastInfo = async () => {
     const apiRequest = `movie/${movieId}/credits`;
     const { data } = await getDataApi(apiRequest);
     setMovieCast(data.cast);
     setIsActiveCast(true);
-
-    //console.log(data);
   };
+
   useEffect(() => {
+    setTmdbImageSrv(defaultStaticPath.tmdbImageSrv);
+    setNoImage(defaultStaticPath.noImage);
     getCastInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -31,7 +30,7 @@ export const Cast = () => {
       <ul>
         {isActiveCast &&
           movieCast.map(item => (
-            <li key={item.id}>
+            <li key={nanoid()}>
               <p>{item.name}</p>
               <p>{item.character}</p>
 
