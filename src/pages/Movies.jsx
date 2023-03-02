@@ -1,7 +1,8 @@
 import { getDataApi } from 'components/Api/Api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { useEffect, useState } from 'react';
+import { LoaderDiv } from 'Layouts/MainLayout.styled';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
@@ -21,8 +22,10 @@ export const Movies = () => {
   const getSearchMovieS = async searchWord => {
     const apiRequest = `search/movie`;
     const params = { query: searchWord };
+    console.log('params', params);
     const { data } = await getDataApi(apiRequest, params);
     setfoundMovies(data.results);
+    console.log('data.results', data.results);
     setIsReplied(true);
   };
 
@@ -33,8 +36,18 @@ export const Movies = () => {
 
   return (
     <>
-      <SearchForm onHandlerSubmit={handlerSubmitForm} />
-      <div>{isReplied && <MoviesList data={foundMovies} />}</div>
+      <Suspense
+        fallback={
+          <LoaderDiv>
+            <p>...Loading</p>
+          </LoaderDiv>
+        }
+      >
+        {/* <Outlet /> */}
+        <SearchForm onHandlerSubmit={handlerSubmitForm} />
+        <div>{isReplied && <MoviesList data={foundMovies} />}</div>
+        {/*  */}
+      </Suspense>
     </>
   );
 };
