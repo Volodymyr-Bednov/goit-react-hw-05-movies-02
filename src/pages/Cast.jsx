@@ -28,7 +28,7 @@ export const Cast = () => {
   return (
     <div>
       <ul>
-        {isActiveCast &&
+        {isActiveCast ? (
           movieCast.map(item => (
             <li key={nanoid()}>
               <p>{item.name}</p>
@@ -44,7 +44,10 @@ export const Cast = () => {
                 width="150px"
               />
             </li>
-          ))}
+          ))
+        ) : (
+          <p>We don't have any cast for this movie.</p>
+        )}
       </ul>
     </div>
   );
