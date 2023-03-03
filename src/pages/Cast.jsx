@@ -28,26 +28,27 @@ export const Cast = () => {
   return (
     <div>
       <ul>
-        {isActiveCast ? (
-          movieCast.map(item => (
-            <li key={nanoid()}>
-              <p>{item.name}</p>
-              <p>{item.character}</p>
+        {
+          isActiveCast &&
+            movieCast.map(item => (
+              <li key={nanoid()}>
+                <p>{item.name}</p>
+                <p>{item.character}</p>
 
-              <img
-                src={
-                  item.profile_path
-                    ? `${tmdbImageSrv}w300${item.profile_path}`
-                    : noImage
-                }
-                alt={item.name}
-                width="150px"
-              />
-            </li>
-          ))
-        ) : (
-          <p>We don't have any cast for this movie.</p>
-        )}
+                <img
+                  src={
+                    item.profile_path
+                      ? `${tmdbImageSrv}w300${item.profile_path}`
+                      : noImage
+                  }
+                  alt={item.name}
+                  width="150px"
+                />
+              </li>
+            ))
+
+          // <p>We don't have any cast for this movie.</p>
+        }
       </ul>
     </div>
   );

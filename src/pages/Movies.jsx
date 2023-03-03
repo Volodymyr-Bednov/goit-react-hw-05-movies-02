@@ -1,8 +1,8 @@
 import { getDataApi } from 'components/Api/Api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { LoaderDiv } from 'Layouts/MainLayout.styled';
-import { Suspense, useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
@@ -36,18 +36,8 @@ export const Movies = () => {
 
   return (
     <>
-      <Suspense
-        fallback={
-          <LoaderDiv>
-            <p>...Loading</p>
-          </LoaderDiv>
-        }
-      >
-        {/* <Outlet /> */}
-        <SearchForm onHandlerSubmit={handlerSubmitForm} />
-        <div>{isReplied && <MoviesList data={foundMovies} />}</div>
-        {/*  */}
-      </Suspense>
+      <SearchForm onHandlerSubmit={handlerSubmitForm} />
+      <div>{isReplied && <MoviesList data={foundMovies} />}</div>
     </>
   );
 };
